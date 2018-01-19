@@ -2,8 +2,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
     browserify: {
         files: {
-        src: './javascripts/main.js',
-        dest: './dist/app.js'
+        src: './scripts/main.js',
+        dest: './dist/bundle.js'
         },
         options: {
         transform: ['hbsfy'],

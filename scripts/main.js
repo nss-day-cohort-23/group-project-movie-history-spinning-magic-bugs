@@ -1,7 +1,6 @@
 "use strict";
 
-let factory = require('./factory');
-require('./dominteractions');
 
+const domInteractions = require('./dominteractions');
 
-factory.getMovieDB();
+let movieName = domInteractions.searchInput();

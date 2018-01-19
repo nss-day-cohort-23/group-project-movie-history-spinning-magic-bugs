@@ -3,20 +3,24 @@
 const $ = require('jquery');
 const _ = require('lodash');
 
+let factory = require('./factory');
+
 console.log("dom interactions running");
 
 module.exports.searchInput = () =>{
-    document.getElementById("search").keypress(function(e){
+    $("#search").keypress(function(e){
     
-        if (e.which== 13){
+        if (e.which === 13){
 
-        console.log("enter running");
+            console.log("enter running");
         
-        let searchValue = $('.search').value;
+            let searchValue = $('#search').val();
 
-        console.log("searchValue");
+            console.log("searchValue",searchValue);
 
-        let movieName = _.replace(searchValue,' ',`+`);
-    }      
-});
+            let movieName = _.replace(searchValue,' ',`+`);
+            console.log("movie name",movieName);
+            factory.getMovieDB(movieName);
+        }      
+    });
 };

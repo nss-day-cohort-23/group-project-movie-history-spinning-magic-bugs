@@ -3,3 +3,5 @@ node_modules/
 dist/
 .sass-cache/
 package-lock.json
+scripts/config/secretKey.js
+scripts/config/fb-creds.js

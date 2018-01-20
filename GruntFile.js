@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         }
 },
     jshint: {
-        files: ['./javascripts/**/*.js'],
+        files: ['./scripts/**/*.js'],
         options: {
         predef: ["document", "console"],
         esnext: true,
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     },
     watch: {
         javascripts: {
-          files: ['./javascripts/**/*.js'],
+          files: ['./scripts/**/*.js'],
         tasks: ['jshint', 'browserify']
         },
         hbs: {

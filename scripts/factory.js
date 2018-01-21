@@ -14,7 +14,8 @@ module.exports.getMovieDB = (movieName) => {
             url:`//api.themoviedb.org/3/search/movie?api_key=${movie.movieKey}&query=${movieName}`
         })
             .done((test) => {
-                console.log("my movies",test);
+                console.log("my movies",test.results);
+                resolve(test.results);
             });
     });
 };

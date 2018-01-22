@@ -14,7 +14,6 @@ const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/d
 domInteractions.getSearchInput();
 
 user.authUser();
-
 firebase.auth().onAuthStateChanged(() => {
     console.log("Who is our user?", firebase.auth().currentUser);
 });

@@ -14,8 +14,20 @@ module.exports.getMovieDB = (movieName) => {
             url:`//api.themoviedb.org/3/search/movie?api_key=${movie.movieKey}&query=${movieName}`
         })
             .done((test) => {
-                console.log("my movies",test.results);
+                // console.log("my movies",test.results);
                 resolve(test.results);
             });
+    });
+};
+
+module.exports.getActors = (movieID) => {
+    return new Promise ((resolve, reject) => {
+        $.ajax({
+            url:`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${movie.movieKey}`
+    })
+        .done((actors) => {
+            // lists our actors!
+            console.log("my actors", actors);
+        });
     });
 };

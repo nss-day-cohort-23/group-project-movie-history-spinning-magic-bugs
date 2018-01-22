@@ -3,14 +3,13 @@
 
 const domInteractions = require('./dominteractions');
 const factory = require('./factory');
+let controller = require('./controller');
+
 const $ = require('jquery');
 
 const user = require('./user-factory');
 const firebase = require("firebase/app");
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
-
-
-console.log("main js");
 
 domInteractions.getSearchInput();
 

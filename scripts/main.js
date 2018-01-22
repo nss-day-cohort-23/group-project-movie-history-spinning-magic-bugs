@@ -3,13 +3,11 @@
 
 const domInteractions = require('./dominteractions');
 const factory = require('./factory');
+let controller = require('./controller');
+
 const $ = require('jquery');
 
-let movieName = domInteractions.searchInput();
 
 
-console.log(factory.getActors());
-
-console.log("main js");
 
 domInteractions.getSearchInput();

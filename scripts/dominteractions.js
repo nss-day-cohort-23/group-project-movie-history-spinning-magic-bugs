@@ -7,7 +7,7 @@ let factory = require('./factory');
 
 console.log("dom interactions running");
 
-module.exports.searchInput = () =>{
+module.exports.getSearchInput = () =>{
     $("#search").keypress(function(e){
     
         if (e.which === 13){
@@ -20,7 +20,11 @@ module.exports.searchInput = () =>{
 
             let movieName = _.replace(searchValue,' ',`+`);
             console.log("movie name",movieName);
-            factory.getMovieDB(movieName);
+            factory.getMovieDB(movieName)
+                .then(function(movieData){
+                    console.log("movie data",movieData);
+                });
+
         }      
     });
 };

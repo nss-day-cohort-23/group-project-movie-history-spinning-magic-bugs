@@ -26,6 +26,7 @@ module.exports.getActors = (movieID) => {
             url:`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${movie.movieKey}`
     })
         .done((actors) => {
+            // lists our actors!
             console.log("my actors", actors);
         });
     });

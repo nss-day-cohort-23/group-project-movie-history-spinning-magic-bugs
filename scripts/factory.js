@@ -18,3 +18,14 @@ module.exports.getMovieDB = (movieName) => {
             });
     });
 };
+
+module.exports.getActors = (movieID) => {
+    return new Promise ((resolve, reject) => {
+        $.ajax({
+            url:`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${movie.movieKey}`
+    })
+        .done((actors) => {
+            console.log("my actors", actors);
+        });
+    });
+};

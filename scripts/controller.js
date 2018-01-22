@@ -7,16 +7,12 @@ const domInteraction = require('./dominteractions');
 
 let movieIdArray = [];
 
-// let get = () => {
-    
-//         });
-//     };
-
-module.exports.castSetter = () => {
+module.exports.castSetter = (movieIdArray) => {
     console.log(movieIdArray, "actors pls");
-    movieIdArray.forEach((movieIdArray => {
-    factory.getActors()
-        .then((actors) => {
-        });
+    movieIdArray.forEach((movieId => {
+        console.log("joe said so");
+        factory.getActors(movieId)
+            .then((actors) => {
+            });
     }));
 };

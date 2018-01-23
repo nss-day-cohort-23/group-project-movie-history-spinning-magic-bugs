@@ -51,7 +51,7 @@ module.exports.userMovieData = (data, id) => {
     });
 };
 
-module.exports.deleteUserMovie = (id) => {
+module.exports.deleteMovie = (id) => {
     return new Promise((resolve, reject) => {
         $.ajax({
             url: `${fbURL}/watchList/${id}.json`,

@@ -1,0 +1,50 @@
+<div class= "movieObject" id ={{id}}>
+    <div class ="title">{{title}}</div>
+    <div class = "year">{{release_date}}</div>
+    <div class = "cast">{{cast}}</div>
+    <div class = "poster">
+        {{#if poster_path}}
+        <img src = https://image.tmdb.org/t/p/w342{{poster_path}}>
+        {{else}}
+        <img src = https://learn.getgrav.org/user/pages/11.troubleshooting/01.page-not-found/error-404.png>
+        {{/if}}
+    </div>
+    <div class = "watched"></div>
+    <div id = "rating">
+        <span class = "fa fa star 1"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 2"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 3"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 4"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 5"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 6"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 7"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 8"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 9"> 
+            <i class="fa fa-star"></i>
+        </span>
+        <span class = "fa fa star 10"> 
+            <i class="fa fa-star"></i>
+        </span>
+
+    </div>
+    {{!-- <button type="button">Delete</button> --}}
+    <button type="button">Add to Watchlist</button>
+
+
+</div>

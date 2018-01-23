@@ -11,7 +11,7 @@ let movieIdArray;
 
 module.exports.getSearchInput = () =>{
     $("#search").keypress(function(e){
-         if (e.which === 13){        
+        if (e.which === 13){        
             let searchValue = $('#search').val();
             let movieName = _.replace(searchValue,' ',`+`);
             factory.getMovieDB(movieName)

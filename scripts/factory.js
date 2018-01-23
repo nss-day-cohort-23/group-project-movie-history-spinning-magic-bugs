@@ -2,8 +2,7 @@
 
 'use strict';
 const movie = require('./config/secretKey.js');
-
-
+const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
 
 
 let $ = require("jquery");
@@ -36,3 +35,57 @@ module.exports.getActors = (movieID) => {
         });
     });
 };
+
+module.exports.userMovieData = (data, id) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `${fbURL}/watchList/${id}.json`,
+            method: 'PATCH',
+            data: JSON.stringify(data)
+        }).done((data) => {
+            console.log(data, "data");
+            resolve(data);
+        }).fail((error) => {
+            reject(error);
+        });
+    });
+};
+
+module.exports.deleteMovie = (id) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `${fbURL}/watchList/${id}.json`,
+            method: 'DELETE',
+        }).done((data) => {
+            resolve(data);
+        }).fail((error) => {
+            reject(error);
+        });
+    });
+};
+
+// module.exports.addToWatchList = (movieObj) => {
+//     return new Promise( (resolve, reject) => {
+//         $.ajax({
+//             url: ,
+//             method: "POST",
+//             data: JSON.stringify(movieObj)
+//         }).done( movie => {
+//             resolve(movie);
+//         }).fail( error => {
+//             reject(error);
+//         });
+//     });
+// };
+
+// module.exports.getMovies = (uid) => {
+//     return new Promise( (resolve, reject) => {
+//         $.ajax({
+//             url: `${uid}"`,
+//         }).done( movie => {
+//             resolve(movie);
+//         }).fail( error => {
+//             reject(error);
+//         });
+//     });
+// };

@@ -26,10 +26,22 @@ module.exports = function(grunt) {
         },
         hbs: {
           files: ['./templates/**/*.hbs']
+        },
+        sass: {
+            files: ["sass/**/*.scss"],
+            tasks: ["sass"]
         }
-    }
+        
+    },
+        sass: {
+            dist: {
+                files: {
+                    'stylesheets/main.css': 'sass/main.scss'
+                }
+            }
+        }, 
     });
 
     require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
-    grunt.registerTask('default', ['jshint', 'browserify', 'watch']);
+    grunt.registerTask('default', ['jshint', 'browserify', 'watch', 'sass']);
 };

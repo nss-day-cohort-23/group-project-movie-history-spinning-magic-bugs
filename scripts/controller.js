@@ -4,6 +4,7 @@ const $ = require('jquery');
 const factory = require('./factory');
 const domInteraction = require('./dominteractions');
 const movieCardHBS = require('../templates/movieCard.hbs');
+const onLoad = require('../templates/onLoad.hbs');
 let movieData;
 
 
@@ -35,7 +36,9 @@ module.exports.castSetter = (movieData) => {
         });
     });
 };
-
+module.exports.printOnLoad = () => {
+    $('#container').append(onLoad());
+};
 
 
 

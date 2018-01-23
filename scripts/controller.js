@@ -3,32 +3,38 @@
 const $ = require('jquery');
 const factory = require('./factory');
 const domInteraction = require('./dominteractions');
+const movieCardHBS = require('../templates/movieCard.hbs');
 let movieData;
 
 
 
-let movieIdArray = [];
 //this function is ran in our dom interactions module, in side of the key press function.
-//it takes in the array of movie IDs, loops over them and makes an ajax call for each ID. This returns us with the cast and crew for each movie searched.
-module.exports.castSetter = (movieIdArray, movieData) => {
-    
-        movieIdArray.forEach(movieId => {
-            
-            factory.getActors(movieIdArray)
+// we pass in the movie data, which has the ids property on each object. We use this id to make our ajax call for actors.
+module.exports.castSetter = (movieData) => {
+    return new Promise((resolve, reject) => {
+        // set an empty array to push our movie data with actors added, to later print.
+        let printMovieArray = [];
+        // loop over each movie in our movie data (that comes from the search in dominteractions).
+        movieData.forEach(movie => {
+            // pass the movie ids into our getActors function, which runs an ajax call for each id.
+            factory.getActors(movie.id)
             .then((actors) => {
-                movieData.forEach(()=>{
-                    console.log("stuff",actors);
-                    // for (let i=0;i<4;i++){
-                        if (actors.id === movieData.id){
-                            movieData.cast = actors.cast;
-                        // }
-                    }
-                });
-            console.log(movieData);
+                // set an empty array where we will push the actors names.
+                let actorsArray =[];
+                // loop over the top 3 billed actors and push them to the actorsArray.
+                for (let i = 0; i < 3;i++){
+                    actorsArray.push(actors.cast[i].name);
+                }
+                // the join method takes all the elements in the array and returns it as a string.
+                movie.cast = actorsArray.join(", ");
+                //push the new data to 16.
+                printMovieArray.push(movie);
+                resolve(printMovieArray);    
+                
+            });
         });
     });
 };
-
 
 
 

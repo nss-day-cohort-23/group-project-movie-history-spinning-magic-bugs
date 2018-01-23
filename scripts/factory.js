@@ -31,7 +31,7 @@ module.exports.getActors = (movieID) => {
     })
         .done((actors) => {
             // lists our actors!
-            console.log("my actors", actors);
+            // console.log("my actors", actors);
             resolve(actors);
         });
     });

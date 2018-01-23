@@ -3,7 +3,11 @@
     <div class = "year">{{release_date}}</div>
     <div class = "cast">{{cast}}</div>
     <div>
-        <img src = https://image.tmdb.org/t/p/w640{{poster_path}}>
+        {{#if poster_path}}
+        <img src = https://image.tmdb.org/t/p/w342{{poster_path}}>
+        {{else}}
+        <img src = https://learn.getgrav.org/user/pages/11.troubleshooting/01.page-not-found/error-404.png>
+        {{/if}}
     </div>
     <div class = "watched"></div>
     <div class = "rating"></div>

@@ -23,13 +23,14 @@ module.exports.getSearchInput = () =>{
                         // .then on the castSetter promise, though we still had to use a 1 second time out to get all the data????
                         .then(printMoviesArray => {
                             setTimeout(() =>{ 
+                                $('#cards').empty();
                                 printMoviesArray.forEach(movie => {
                                     $('#cards').append(movieCardHBS(movie));
                                     });
-                            }, 1000);
+                            }, 500);
                         });
                         });
-                    }, 1000);
+                    }, 500);
                 }
             });
         };

@@ -1,0 +1,23 @@
+.filterBtn {
+    display: flex;
+    justify-content: center;
+    button {
+        margin: 1em; 
+    }
+}
+
+.movieObject {
+    // display: flex;
+    border: .5em solid darkgray;
+    margin: 1em;
+    // padding: 1em;
+}
+
+#cards {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    width: 80%;
+    height: 50%;
+   
+}

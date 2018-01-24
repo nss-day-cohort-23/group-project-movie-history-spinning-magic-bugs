@@ -4,10 +4,8 @@
 const domInteractions = require('./dominteractions');
 const factory = require('./factory');
 let controller = require('./controller');
-
-const $ = require('jquery');
-
 const user = require('./user-factory');
+const rate = require('./rateYo');
 const firebase = require("firebase/app");
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
 const onLoad = require('../templates/onLoad.hbs');
@@ -15,7 +13,7 @@ const onLoad = require('../templates/onLoad.hbs');
 controller.printOnLoad();
 domInteractions.getSearchInput();
 
-user.authUser();
+// user.authUser();
 firebase.auth().onAuthStateChanged(() => {
     console.log("Who is our user?", firebase.auth().currentUser);
 });
@@ -42,3 +40,4 @@ $("#signout-btn").click( () => {
 
     });
 });
+

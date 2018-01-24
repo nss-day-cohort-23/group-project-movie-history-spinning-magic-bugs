@@ -5,9 +5,6 @@ const movie = require('./config/secretKey.js');
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
 
 
-let $ = require("jquery");
-
-
 
 module.exports.getMovieDB = (movieName) => {
     return new Promise ((resolve,reject) => {

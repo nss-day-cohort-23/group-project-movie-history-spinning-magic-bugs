@@ -40,5 +40,14 @@ module.exports.printOnLoad = () => {
     $('#container').append(onLoad());
 };
 
+//-----------------------------Get rating with rateYo-------------------------------
+
+module.exports.getRating = () =>{
+    $(document).on("click", ".rate", function() {
+        console.log("click working", $(event.target).parents(".rate"));
+        var rating = $(event.target).parents(".rate").rateYo("rating") * 2;
+        console.log("Rating", (rating));
+    });
+};
 
 

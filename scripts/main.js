@@ -12,6 +12,7 @@ const onLoad = require('../templates/onLoad.hbs');
 
 controller.printOnLoad();
 domInteractions.getSearchInput();
+controller.getRating();
 
 // user.authUser();
 firebase.auth().onAuthStateChanged(() => {
@@ -42,11 +43,4 @@ $("#signout-btn").click(() => {
 });
 
 
-
-//-----------------------------Get rating with rateYo-------------------------------
-$(document).on("click", ".rate", function() {
-    console.log("click working", $(event.target).parents(".rate"));
-    var rating = $(event.target).parents(".rate").rateYo("rating") * 2;
-    console.log("Rating", (rating));
-});
 

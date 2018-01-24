@@ -8,6 +8,8 @@ const user = require('./user-factory');
 const rate = require('./rateYo');
 const firebase = require("firebase/app");
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
+
+
 // const onLoad = require('../templates/onLoad.hbs');
 let searchedTerm = "";
 
@@ -80,10 +82,3 @@ $(document).on("click", "#showUnwatched", function () {
         console.log('uh');
 });
 
-// userText.addEventListener("keypress", function (e) {
-//     var key = e.keyCode;
-//     if (key === 13) {
-//         searchedTerm = userText.value;
-//         controller.searchedMovie(searchedTerm);
-//     }
-// });

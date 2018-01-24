@@ -33,33 +33,6 @@ module.exports.getActors = (movieID) => {
     });
 };
 
-// module.exports.userMovieData = (data, id) => {
-//     return new Promise((resolve, reject) => {
-//         $.ajax({
-//             url: `${fbURL}/watchList/${id}.json`,
-//             method: 'PATCH',
-//             data: JSON.stringify(data)
-//         }).done((data) => {
-//             console.log(data, "data");
-//             resolve(data);
-//         }).fail((error) => {
-//             reject(error);
-//         });
-//     });
-// };
-
-// module.exports.deleteMovie = (id) => {
-//     return new Promise((resolve, reject) => {
-//         $.ajax({
-//             url: `${fbURL}/watchList/${id}.json`,
-//             method: 'DELETE',
-//         }).done((data) => {
-//             resolve(data);
-//         }).fail((error) => {
-//             reject(error);
-//         });
-//     });
-// };
 
 const firebase = require(`./config/fb-config`);
 const auth = require('./user-factory');

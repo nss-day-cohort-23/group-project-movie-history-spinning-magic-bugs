@@ -51,3 +51,14 @@ module.exports.getRating = () =>{
 };
 
 
+module.exports.addMovieObjectToWatchlist = (movieId, userId) => {
+    let userMovieObject = {};
+    userMovieObject.id = movieId;
+    userMovieObject.user = userId;
+    userMovieObject.watched = false;
+    userMovieObject.stars = 0;
+    factory.addMovie(userMovieObject)
+        .then(function (movie) {
+            console.log("movie", movie);
+        });
+};

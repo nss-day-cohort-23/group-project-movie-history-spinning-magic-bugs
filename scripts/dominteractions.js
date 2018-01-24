@@ -1,6 +1,5 @@
 "use strict";
 
-
 const _ = require('lodash');
 const movieCardHBS = require('./movieCard.hbs');
 let factory = require('./factory');
@@ -38,12 +37,7 @@ module.exports.getSearchInput = () =>{
     });
 };
 
-        // //beginning to attach listeners on star
-        // $(document).on("click", function(){
-        //     if(event.current.id === "fa fa-star 1" ){
-        //         console.log("click working");
-        //     } 
-        // });
+
 
 
 

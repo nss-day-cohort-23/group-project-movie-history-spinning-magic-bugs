@@ -20,24 +20,33 @@ firebase.auth().onAuthStateChanged(() => {
 
 $("#auth-btn").click(() => {
     user
-    .authUser()
-    .then(function(result) {
-        let user = result.user;
-        console.log("user", user);
-        // displayWatchlist(user.uid);
-    })
-    .catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log("error", error);
-    });
+        .authUser()
+        .then(function (result) {
+            let user = result.user;
+            console.log("user", user);
+            // displayWatchlist(user.uid);
+        })
+        .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log("error", error);
+        });
 });
 
-$("#signout-btn").click( () => {
+$("#signout-btn").click(() => {
     user.logout()
-    .then( () => {
-    console.log('logged out!', firebase.auth().currentUser);
+        .then(() => {
+            console.log('logged out!', firebase.auth().currentUser);
 
-    });
+        });
+});
+
+
+
+//-----------------------------Get rating with rateYo-------------------------------
+$(document).on("click", ".rate", function() {
+    console.log("click working", $(event.target).parents(".rate"));
+    var rating = $(event.target).parents(".rate").rateYo("rating") * 2;
+    console.log("Rating", (rating));
 });
 

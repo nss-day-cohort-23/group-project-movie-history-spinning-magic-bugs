@@ -61,28 +61,50 @@ module.exports.deleteMovie = (id) => {
     });
 };
 
-// module.exports.addToWatchList = (movieObj) => {
-//     return new Promise( (resolve, reject) => {
-//         $.ajax({
-//             url: ,
-//             method: "POST",
-//             data: JSON.stringify(movieObj)
-//         }).done( movie => {
-//             resolve(movie);
-//         }).fail( error => {
-//             reject(error);
-//         });
-//     });
-// };
+const firebase = require(`./config/fb-config`);
+const auth = require('./user-factory');
 
-// module.exports.getMovies = (uid) => {
-//     return new Promise( (resolve, reject) => {
-//         $.ajax({
-//             url: `${uid}"`,
-//         }).done( movie => {
-//             resolve(movie);
-//         }).fail( error => {
-//             reject(error);
-//         });
-//     });
-// };
+module.exports.getUsersMovies = (uid) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `${fbURL}.json?orderBy="user"&equalTo="${uid}"`
+        })
+            .done(data => {
+                console.log('data', data);
+                resolve(data);
+            })
+            .fail(error => {
+                console.log("somethings gone wrong", error.statusText);
+                reject(error);
+            });
+    });
+};
+
+module.exports.deleteUsersMovie = (id) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `${fbURL}/${id}.json`,
+            method: `DELETE`
+        })
+            .done(data => {
+                resolve(data);
+            })
+            .fail(error => {
+                console.log("somethings gone wrong", error.statusText);
+                reject(error);
+            });
+    });
+};
+
+module.exports.addMovie = (movie) => {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `${fbURL}.json`,
+            method: "POST",
+            data: JSON.stringify(movie)
+        })
+            .done(movieId => {
+                resolve(movieId);
+            });
+    });
+};

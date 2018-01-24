@@ -3,12 +3,13 @@
 
 const domInteractions = require('./dominteractions');
 const factory = require('./factory');
-let controller = require('./controller');
+const controller = require('./controller');
 const user = require('./user-factory');
 const rate = require('./rateYo');
 const firebase = require("firebase/app");
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
 const onLoad = require('../templates/onLoad.hbs');
+let searchedTerm = "";
 
 controller.printOnLoad();
 domInteractions.getSearchInput();
@@ -41,3 +42,47 @@ $("#signout-btn").click( () => {
     });
 });
 
+let userText = document.getElementById("search");
+// controller.pressingEnter(userText);
+
+$(document).on("click", ".watchlist", function () {
+    console.log('hello');
+    let currentUser = firebase.auth().currentUser;
+    console.log('currentUser', currentUser);
+    if (currentUser) {
+        console.log('added to watchlist');
+        let movieId = $(event.target).parent().attr("id");
+        console.log('movieId = ', movieId);
+        controller.addMovieObjectToWatchlist(movieId, currentUser.uid);
+    } else
+        alert("Please log in to continue..");
+        console.log('uh');
+});
+
+$(document).on("click", "#showUntracked", function () {
+    console.log('hello');
+    let currentUser = firebase.auth().currentUser;
+    if (currentUser) {
+        controller.showsUntrackedMovies(searchedTerm, currentUser.uid);
+    } else
+        alert("Please log in to continue..");
+        console.log('uh');
+});
+
+$(document).on("click", "#showUnwatched", function () {
+    console.log('hello');
+    let currentUser = firebase.auth().currentUser;
+    if (currentUser) {
+
+    } else
+        alert("Please log in to continue..");
+        console.log('uh');
+});
+
+// userText.addEventListener("keypress", function (e) {
+//     var key = e.keyCode;
+//     if (key === 13) {
+//         searchedTerm = userText.value;
+//         controller.searchedMovie(searchedTerm);
+//     }
+// });

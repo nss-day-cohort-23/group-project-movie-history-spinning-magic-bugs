@@ -2,7 +2,7 @@
 
 
 // let factory = require('./factory');
-// let $ = require('jquery');
+
 // let movieId = [];
 
 // let get = ()=>{

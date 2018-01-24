@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     jshint: {
         files: ['./scripts/**/*.js'],
         options: {
-        predef: ["document", "console"],
+        predef: ["document", "console", '$'],
         esnext: true,
         globalstrict: true,
         globals: {},
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'browserify']
         },
         hbs: {
-          files: ['./templates/**/*.hbs']
+          files: ['./scripts/*.hbs']
         },
         sass: {
             files: ["sass/**/*.scss"],

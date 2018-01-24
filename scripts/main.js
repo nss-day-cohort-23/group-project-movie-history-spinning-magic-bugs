@@ -55,6 +55,7 @@ $(document).on("click", ".watchlist", function () {
         let movieId = $(event.target).parent().attr("id");
         console.log('movieId = ', movieId);
         controller.addMovieObjectToWatchlist(movieId, currentUser.uid);
+        alert("Congrats, you did it....You added a movie to your watchlist. Good jobbie.");
     } else
         alert("Please log in to continue..");
         console.log('uh');

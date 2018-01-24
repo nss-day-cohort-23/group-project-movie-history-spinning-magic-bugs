@@ -7,10 +7,10 @@
 }
 
 .movieObject {
-    // display: flex;
     border: .5em solid darkgray;
     margin: 1em;
-    // padding: 1em;
+    width: 25em;
+    align-content: center;
 }
 
 #cards {
@@ -22,7 +22,7 @@
    
 }
 .poster{
-    width: 342;
-    height: 513;
+    object-fit: fill;
     overflow: hidden;
+    
 }

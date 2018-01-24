@@ -1,4 +1,4 @@
-<div class= "movieObject" id ={{id}}>
+<div class= "movieObject" id = "MOV{{id}}">
     <div class ="title">{{title}}</div>
     <div class = "year">{{release_date}}</div>
     <div class = "cast">{{cast}}</div>
@@ -9,8 +9,10 @@
         <img src = https://learn.getgrav.org/user/pages/11.troubleshooting/01.page-not-found/error-404.png>
         {{/if}}
     </div>
-    <div class="rate" id="${+movieObject.id}"></div>
+
+    <div class="rate" id="{{id}}"></div>
     <div class = "watched" class= "movieObject" id ={{id}}></div>
+
     
     {{!-- <button type="button">Delete</button> --}}
     <button type="button" class="watchlist">Add to Watchlist</button>

@@ -10,3 +10,4 @@ $(".rate").rateYo({
     fullStar: true
 });
 };
+

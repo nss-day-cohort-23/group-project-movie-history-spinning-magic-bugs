@@ -13,6 +13,7 @@ let searchedTerm = "";
 
 controller.printOnLoad();
 domInteractions.getSearchInput();
+controller.getRating();
 
 // user.authUser();
 firebase.auth().onAuthStateChanged(() => {
@@ -21,25 +22,25 @@ firebase.auth().onAuthStateChanged(() => {
 
 $("#auth-btn").click(() => {
     user
-    .authUser()
-    .then(function(result) {
-        let user = result.user;
-        console.log("user", user);
-        // displayWatchlist(user.uid);
-    })
-    .catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log("error", error);
-    });
+        .authUser()
+        .then(function (result) {
+            let user = result.user;
+            console.log("user", user);
+            // displayWatchlist(user.uid);
+        })
+        .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log("error", error);
+        });
 });
 
-$("#signout-btn").click( () => {
+$("#signout-btn").click(() => {
     user.logout()
-    .then( () => {
-    console.log('logged out!', firebase.auth().currentUser);
+        .then(() => {
+            console.log('logged out!', firebase.auth().currentUser);
 
-    });
+        });
 });
 
 let userText = document.getElementById("search");
@@ -54,6 +55,7 @@ $(document).on("click", ".watchlist", function () {
         let movieId = $(event.target).parent().attr("id");
         console.log('movieId = ', movieId);
         controller.addMovieObjectToWatchlist(movieId, currentUser.uid);
+        alert("Congrats, you did it....You added a movie to your watchlist. Good jobbie.");
     } else
         alert("Please log in to continue..");
         console.log('uh');

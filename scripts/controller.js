@@ -4,7 +4,7 @@
 const factory = require('./factory');
 const domInteraction = require('./dominteractions');
 // const movieCardHBS = require('../templates/movieCard.hbs');
-const onLoad = require('../templates/onLoad.hbs');
+const onLoad = require('./onLoad.hbs');
 let movieData;
 
 
@@ -51,5 +51,14 @@ module.exports.addMovieObjectToWatchlist = (movieId, userId) => {
     factory.addMovie(userMovieObject)
         .then(function (movie) {
             console.log("movie", movie);
+        });
+};
+
+module.exports.showsUntrackedMovies = (searchTerm, currentUid) => {
+    console.log('currentUid', currentUid);
+    console.log('searchTerm', searchTerm);
+    factory.getUsersMovies(currentUid)
+        .then((data) => {
+            console.log('data', data);
         });
 };

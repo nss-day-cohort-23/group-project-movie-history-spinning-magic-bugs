@@ -8,7 +8,7 @@ const user = require('./user-factory');
 const rate = require('./rateYo');
 const firebase = require("firebase/app");
 const fbURL = "https://console.firebase.google.com/project/magic-spinning-bugs/database";
-const onLoad = require('../templates/onLoad.hbs');
+// const onLoad = require('../templates/onLoad.hbs');
 let searchedTerm = "";
 
 controller.printOnLoad();
@@ -50,6 +50,7 @@ $(document).on("click", ".watchlist", function () {
     let currentUser = firebase.auth().currentUser;
     console.log('currentUser', currentUser);
     if (currentUser) {
+        alert("Your selection was successfully added.");
         console.log('added to watchlist');
         let movieId = $(event.target).parent().attr("id");
         console.log('movieId = ', movieId);
@@ -59,7 +60,7 @@ $(document).on("click", ".watchlist", function () {
         console.log('uh');
 });
 
-$(document).on("click", "#showUntracked", function () {
+$("#showUntracked").on("click", function () {
     console.log('hello');
     let currentUser = firebase.auth().currentUser;
     if (currentUser) {
